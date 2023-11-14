@@ -4,11 +4,11 @@
 */
 * { padding:0; margin: 0; border-spacing: 1; font-family:Arial; }
 :root { --border-color:#A7A7A7; --bitcoin-color: #F7934C; --eth-color: black;  }
-body { width:100%; height:100%; }
+body { width:100%; height:100%; max-width: 100%; overflow-x: hidden;}
 
 div.wrapper {display: flex; flex-direction: row;  justify-content: center; width:100%; height:100%;}
 div.wrapper > div.left-half { width:50%; height:100%; }
-div.left-half > div.passive.banner { display:flex; flex-direction: row; justify-content: space-evenly; align-items: center; border-radius: 10px;}
+div.left-half > div.passive.banner { display:flex; flex-direction: row; justify-content: space-between; align-items: center;}
 div.left-half > div.banner { border-bottom:1px solid #A7A7A7; height:130px; display:flex; flex-direction: column;  }
 
 
@@ -30,7 +30,7 @@ div.text.ethereum:hover { background-color: var(--eth-color); }
 
 div.price, div.price-lower {display:flex; flex-direction: row; justify-content: center;}
 p#price, span#price {font-family:Arial; font-size:200px;}
-p#price-lower { font-family:Arial; font-size:50px; }
+p.price-lower { font-family:Arial; font-size:50px; }
 svg#arrow-down { display:none; }
 
 input.actBut { width:35px; height:35px; appearance: none; top:5px; padding:10px;}
@@ -42,10 +42,31 @@ input.pasBut:checked { border:6px solid var(--bitcoin-color); }
 input#circle-btc:checked { border:6px solid var(--bitcoin-color); }
 input#circle-eth:checked { border:6px solid var(--eth-color);}
 
+div.wallet {display:flex; flex-direction: column; justify-content: end; align-items: end; margin-left:10px; margin-top:10px; }
+input.wallet, input.passive-wallet {  border-bottom:1px solid var(--border-color); height:15px; }
+input.wallet {padding:10px;}
+input.passive-wallet { padding:8px;margin-left:20px; font-size:10px; }
+p#wallet {margin-top:10px; margin-right:5px;}
 
-div.wallet { display:flex; justify-content: end; }
 
 div.left-half > div.active {height:400px;}
 
-div.wrapper > div.right-half {border-bottom:1px solid #A7A7A7; border-left:1px solid #A7A7A7; width:50%; height:100%;}
-div.right-half > div.graph { height:400px;}
+div.wrapper > div.right-half {width:50%; height:100%;}
+div.right-half > div.graph { height:400px; }
+div.right-half > div.box { display:flex; flex-direction: column; justify-content: end; margin:30px;}
+
+div.box div.tab {display:flex; flex-direction: row; align-items: center;justify-content: end; margin-bottom: 20px;}
+
+div.box div.tab div.text-button[id^=txtbtn] { width:250px; height:45px; border:0px solid #A7A7A7; border-radius:30px; margin-right:20px;}
+div.box div.tab div.text-button#txtbtn3 { width:250px; height:45px; border:0px solid #A7A7A7; border-radius:30px; margin-right:20px; background-color:#AFD5AA;}
+div.box div.tab div.text-button#txtbtn2 { width:250px; height:45px; border:0px solid #A7A7A7; border-radius:30px; margin-right:20px; background-color:#FF715B;}
+
+
+input { border:0; border-width: 1px; outline:none;}
+div.tab div.text-button { display:flex; background-color: plum; flex-direction: column; justify-content: center; align-items: center;}
+div.tab div.text-button input#inputbtn1 { background-color: rgba(0,0,0,0.0); border-width:1px; border-bottom:1px solid black; outline:none; padding:8px; }
+div.tab div.text-button input#inputbtn1:focus {background-color: rgba(0,0,0,0.0); border-bottom:2px solid black; outline:none;}
+
+
+div.tab div.button { width:60px; height:60px; border:2px solid #A7A7A7; border-radius: 50%; display:flex; justify-content: center; align-items: center; font-size:20px; font-family: 'Plus Jakarta Sans', sans-serif; font-family: 'Schibsted Grotesk', sans-serif;font-weight: bold;}
+div.tab div.button:hover { color:white; }

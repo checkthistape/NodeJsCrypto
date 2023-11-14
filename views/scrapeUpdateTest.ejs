@@ -26,9 +26,9 @@
                 l.style.color="gray";
                 l.style.fontSize="12px";
                 //p.innerText = "WOw";
-                fetch("/scrape.json")
+                fetch("/test-scrape.json")
                 .then(response => response.json()) 
-                .then(js => check(js.value) ).then(timing++);
+                .then(js => check(js.solana) );
             
                 
             

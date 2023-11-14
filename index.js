@@ -4,7 +4,8 @@ const fs = require('fs');
 const ejs = require('ejs');
 const path = require('path');
 
-const {scrapeLogic} = require("./scrapeLogic");
+const {solanaScrape} = require("./solanaScrape");
+const {bitcoinScrape} = require("./bitcoinScrape");
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -42,34 +43,48 @@ app.get("/", (req, res) => {
     
 
 app.get("/scrape", (req, res) => {
-    res.render('scrape.ejs');
-    //scrapeLogic(res);
-    //const js=[{ price:1241, value:313 }];
-    // res.json(js);
-    
-    
+    res.render('scrape');    
         
 });
 
 app.get("/scrape.json", (req, res) => {
     
-    (async()=>{
+    // (async()=>{
         
-        var l = await scrapeLogic();
-        console.log(await l);
-        res.json({
-            value: l
-        })
-    })();
-    const js=[{ price:1241, value:313 }];
-    // res.send("var JSON = " + js + ";");
-
-    //res.json(js);
+    //     var s = await solanaScrape();
+    //     var b = await bitcoinScrape();
+    //     console.log(await s);
+    //     console.log(await b);
+    //     res.json({
+    //         solana: s,
+    //         bitcoin: b
+    //     })
+    // })();
+    // const js=[{ price:1241, value:313 }];
     
 });
 
 app.get("/low-page", (req, res) => {
-    res.render('scrape');
+    res.render('low-page');
+    
+});
+
+app.get("/test-scrape", (req, res) => {
+    res.render('scrapeUpdateTest');
+    
+});
+
+app.get("/test-scrape.json", (req, res) => {
+    (async()=>{
+        
+        var s = await solanaScrape();
+        
+        console.log("Test before sending: " + await s);
+
+        res.json({
+            solana: s
+        })
+    })();
     
 });
 
