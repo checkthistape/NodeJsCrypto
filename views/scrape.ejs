@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scrape</title>
+        <script>
+            const value = [];
+            let color = "red";
+            function check(arg){
+                var p = document.getElementById("q");
+                p.innerText=arg;
+                if(value[0]>arg){ color = "red"; }
+                else { color = "green"; }
+                p.style.color = color;
+                value[0]=arg;
+
+            }
+            function main()
+            {
+                
+                var l = document.getElementById("lower");
+                var timing = 0;
+
+                if(timing==1){l.innerText="a";}
+                l.innerText="Please wait until value loads!";
+                l.style.color="gray";
+                l.style.fontSize="12px";
+                //p.innerText = "WOw";
+                fetch("/scrape.json")
+                .then(response => response.json()) 
+                .then(js => check(js.value) ).then(timing++);
+            
+                
+            
+
+                console.log("This script works!");
+                
+            }
+            
+               
+        </script>
+    </head>
+    <body>
+        <p id="q"></p>
+        <p id="lower"></p>
+        <button onclick="main()">Click to change</button>
+    </body>
+</html>

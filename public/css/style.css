@@ -1,0 +1,51 @@
+/*#b02727 - red
+  #29b027 - green
+
+*/
+* { padding:0; margin: 0; border-spacing: 1; font-family:Arial; }
+:root { --border-color:#A7A7A7; --bitcoin-color: #F7934C; --eth-color: black;  }
+body { width:100%; height:100%; }
+
+div.wrapper {display: flex; flex-direction: row;  justify-content: center; width:100%; height:100%;}
+div.wrapper > div.left-half { width:50%; height:100%; }
+div.left-half > div.passive.banner { display:flex; flex-direction: row; justify-content: space-evenly; align-items: center; border-radius: 10px;}
+div.left-half > div.banner { border-bottom:1px solid #A7A7A7; height:130px; display:flex; flex-direction: column;  }
+
+
+div.canvas {display:flex; flex-direction: column; justify-content: start;}
+div.circle-menu { display:flex; flex-direction: row; align-items: center; justify-content: start; height:100%; margin-top:8px;}
+div.circle-menu div.text { display:flex; align-items:center; width:200px; height:5px; border:1px solid #A7A7A7; border-radius: 40px; padding-top:14px;padding-bottom:14px;}
+div.circle-menu div.text > div.text-left { width:20%; height:33px; border-right:1px solid var(--border-color); border-radius: 40px 0px 0px 40px; transition:background-color 2s linear; -webkit-transition: background-color 2s linear;}
+div.circle-menu div.text > div.text-right { width:80%; height:33px;  border-radius: 0px 40px 40px 0px; display:flex; align-items: center; padding-left:10px;}
+
+
+div.circle-menu div.lower { display:flex; align-items:center; width:160px; height:4px; border:1px solid #A7A7A7; border-radius: 40px; padding-top:14px;padding-bottom:14px;}
+
+
+div.text:hover { background-color: #B084CC; color:White; --border-color:white; transition:0.4s; }
+div.text.bitcoin:hover { background-color: var(--bitcoin-color); }
+div.text.ethereum:hover { background-color: var(--eth-color); }
+
+
+
+div.price, div.price-lower {display:flex; flex-direction: row; justify-content: center;}
+p#price, span#price {font-family:Arial; font-size:200px;}
+p#price-lower { font-family:Arial; font-size:50px; }
+svg#arrow-down { display:none; }
+
+input.actBut { width:35px; height:35px; appearance: none; top:5px; padding:10px;}
+input.actBut, input.pasBut { border:2px solid var(--border-color);  border-radius:50%; appearance: none; transition: 0.2s all linear; top:5px;margin-left:10px; margin-right:10px;  }
+input.actBut:checked { border:7px solid #B084CC; }
+input.pasBut { width:30px; height:30px; appearance: none; padding:7px; }
+input.pasBut:checked { border:6px solid var(--bitcoin-color); }
+
+input#circle-btc:checked { border:6px solid var(--bitcoin-color); }
+input#circle-eth:checked { border:6px solid var(--eth-color);}
+
+
+div.wallet { display:flex; justify-content: end; }
+
+div.left-half > div.active {height:400px;}
+
+div.wrapper > div.right-half {border-bottom:1px solid #A7A7A7; border-left:1px solid #A7A7A7; width:50%; height:100%;}
+div.right-half > div.graph { height:400px;}

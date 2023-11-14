@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+
+        fetch("/low-page:lol")
+            .then(response => response.json()) 
+            .then(message => console.log(message.message));
+        console.log("This script works!");
+    </script>
+    </head>
+    <body>
+        <input type="text">
+        <button id="btn1">BUTTON1!</button>
+        <button id="btn2">BUTTON1!</button>
+    </body>
+</html>
+
